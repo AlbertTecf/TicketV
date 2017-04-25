@@ -21,7 +21,6 @@ class TicketType extends AbstractType
             'choice_label' => 'libelle',
             'label'=>'Projet : '
         ))
-
         ->add('idStatut', EntityType::class, array(
               'class' => 'AppBundle:Statut',
               'choice_label' => 'libelle',
@@ -35,14 +34,15 @@ class TicketType extends AbstractType
           'empty_data'  => null,
           'label'=>'Mise à jour : '
         ))
+        ->add('idDegreImportance', EntityType::class, array(
+            'class' => 'AppBundle:DegreImportance',
+            'choice_label' => 'libelle',
+            'label'=>'Importance : '
+        ))
         ->add('libelle',TextType::class,['label'=>'Libellé : '])
             ->add('description',TextareaType::class,['label'=>'Description : '])
 
-            ->add('idDegreImportance', EntityType::class, array(
-                'class' => 'AppBundle:DegreImportance',
-                'choice_label' => 'libelle',
-                'label'=>'Importance : '
-            ))
+
 
 
 
