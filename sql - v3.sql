@@ -87,10 +87,8 @@ CREATE TABLE `plage_travail` (
   `id_plage` int(11) NOT NULL,
   `id_ticket` int(11) DEFAULT NULL,
   `id_utilisateur` int(11) DEFAULT NULL,
-  `date_debut` date NOT NULL,
-  `heure_debut` time NOT NULL,
-  `date_fin` date NOT NULL,
-  `heure_fin` time NOT NULL,
+  `date_debut` datetime NOT NULL,
+  `date_fin` datetime NOT NULL,
   `remarque` text COLLATE utf8_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
