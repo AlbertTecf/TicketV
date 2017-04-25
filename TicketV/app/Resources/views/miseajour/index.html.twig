@@ -62,7 +62,7 @@
                 <td>{{ maj.getIdMiseAJour() }}</td>
                 <td>{{ maj.getProjet().getLibelle() }}</td>
                 <td>{{ maj.getVersion() }}</td>
-                <td>{{ maj.getDate()|date("d/m/Y") }}</td>
+                <td>{{ maj.getDate()|date("d/m/Y H:i") }}</td>
                 <td>{% if maj.isEffectue() %} Oui {% else %} Non {% endif %}</td>
                 <td>{{ maj.getTickets()|length }} ticket(s)  </td>
                 <td class="text-center">

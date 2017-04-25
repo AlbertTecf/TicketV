@@ -10,12 +10,12 @@
         </div>
         <div class="row">
             <div class="col-md-2"><b>Début : </b></div>
-            <div class="col-md-8">{{ plageTravail.getDateDebut()|date('d/m/Y') }} - {{ plageTravail.getHeureDebut()|date('H:i:s') }}</div>
+            <div class="col-md-8">{{ plageTravail.getDateDebut()|date('d/m/Y H:i') }}</div>
         </div>
 
         <div class="row">
             <div class="col-md-2"><b>Fin : </b></div>
-            <div class="col-md-8">{{ plageTravail.getDateFin()|date('d/m/Y') }} - {{ plageTravail.getHeureFin()|date('H:i:s') }}</div>
+            <div class="col-md-8">{{ plageTravail.getDateFin()|date('d/m/Y H:i') }}</div>
         </div>
 
         <div class="row">

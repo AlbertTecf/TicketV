@@ -7,6 +7,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -29,7 +30,7 @@ class MiseAJourType extends AbstractType
                     'label'=>'Projet : '
                 ))
 
-                ->add('date', DateType::class,['label'=>'Date : ','widget' => 'single_text'])
+                ->add('date', DateTimeType::class,['label'=>'Date : ','widget' => 'single_text', 'format' => 'dd/MM/yyyy HH:mm'])
                 ->add('effectue',CheckboxType::class,['label'=>'Effectuée','required' => false])
                 ->add('remarque', TextareaType::class,['label'=>'Remarque : ','required' => false]);
         ;

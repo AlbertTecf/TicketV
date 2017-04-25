@@ -45,7 +45,14 @@
 {% endblock %}
 
 {% block datetime_widget %}
-    <input type="datetime" width="70%"  class="form-control" {{ block('widget_attributes') }} value="{{ value }}"/>
+    <div class="form-group">
+        <div class='input-group date datetimepicker' width="70%">
+            <input type='text' class="form-control" {{ block('widget_attributes') }} value="{{ value }}"/>
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+        </div>
+    </div>
 {% endblock %}
 
 

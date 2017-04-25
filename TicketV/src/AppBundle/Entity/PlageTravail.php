@@ -13,32 +13,18 @@ use Doctrine\ORM\Mapping as ORM;
 class PlageTravail
 {
     /**
-     * @var string
+     * @var \DateTime
      *
-     * @ORM\Column(name="date_debut", type="date")
+     * @ORM\Column(name="date_debut", type="datetime")
      */
     private $dateDebut;
 
     /**
-     * @var string
+     * @var \DateTime
      *
-     * @ORM\Column(name="heure_debut", type="time")
-     */
-    private $heureDebut;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="date_fin", type="date")
+     * @ORM\Column(name="date_fin", type="datetime")
      */
     private $dateFin;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="heure_fin", type="time")
-     */
-    private $heureFin;
 
     /**
      * @var string
@@ -103,30 +89,6 @@ class PlageTravail
     }
 
     /**
-     * Set heureDebut
-     *
-     * @param String $heureDebut
-     *
-     * @return PlageTravail
-     */
-    public function setHeureDebut($heureDebut)
-    {
-        $this->heureDebut = $heureDebut;
-
-        return $this;
-    }
-
-    /**
-     * Get heureDebut
-     *
-     * @return string
-     */
-    public function getHeureDebut()
-    {
-        return $this->heureDebut;
-    }
-
-    /**
      * Set dateFin
      *
      * @param \DateTime $dateFin
@@ -149,32 +111,6 @@ class PlageTravail
     {
         return $this->dateFin;
     }
-
-
-    /**
-     * Set heureFin
-     *
-     * @param string $heureFin
-     *
-     * @return PlageTravail
-     */
-    public function setHeureFin($heureFin)
-    {
-        $this->heureFin = $heureFin;
-
-        return $this;
-    }
-
-    /**
-     * Get heureFin
-     *
-     * @return string
-     */
-    public function getHeureFin()
-    {
-        return $this->heureFin;
-    }
-
 
     /**
      * Get idPlage

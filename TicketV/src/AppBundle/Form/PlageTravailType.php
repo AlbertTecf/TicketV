@@ -5,11 +5,14 @@ namespace AppBundle\Form;
 use AppBundle\Entity\FosUser;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Choice;
 
 class PlageTravailType extends AbstractType
 {
@@ -26,10 +29,8 @@ class PlageTravailType extends AbstractType
     {
         $this->utilisateur = $options["utilisateur"];
 
-        $builder->add('dateDebut', DateType::class,['label'=>'Date début : ','widget' => 'single_text'])
-                ->add('heureDebut', TimeType::class,['label'=>'Heure début : ','widget' => 'single_text'])
-                ->add('dateFin', DateType::class,['label'=>'Date fin : ','widget' => 'single_text'])
-                ->add('heureFin', TimeType::class,['label'=>'Heure fin : ','widget' => 'single_text'])
+        $builder->add('dateDebut', DateTimeType::class,['label'=>'Date début : ','widget' => 'single_text', 'format' => 'dd/MM/yyyy HH:mm'])
+                ->add('dateFin', DateTimeType::class,['label'=>'Date fin : ','widget' => 'single_text', 'format' => 'dd/MM/yyyy HH:mm'])
 
             ->add('ticket', EntityType::class, array(
                 'class' => 'AppBundle:Ticket',
@@ -41,20 +42,19 @@ class PlageTravailType extends AbstractType
             $builder ->add('utilisateur', EntityType::class, array(
                 'class' => 'AppBundle:FosUser',
                 'choice_label' => 'username',
-                'label'=>'Ticket : ',
-                'data'=>$this->utilisateur,
-                'disabled'=>true
+                'label'=>'Utilisateur : ',
+                'data'=> $this->utilisateur,
             ));
         }else {
             $builder->add('utilisateur', EntityType::class, array(
                 'class'        => 'AppBundle:FosUser',
                 'choice_label' => 'username',
-                'label'        => 'Ticket : ',
-                'disabled'     => true
+                'label'        => 'Utilisateur : ',
+
             ));
         }
 
-        $builder->add('remarque', TextareaType::class,['label'=>'Remarque : ']);
+        $builder->add('remarque', TextareaType::class,['label'=>'Remarque : ','required'=>false]);
 
     }
     
