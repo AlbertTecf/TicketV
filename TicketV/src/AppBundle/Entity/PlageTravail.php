@@ -15,16 +15,23 @@ class PlageTravail
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_debut", type="datetime", nullable=true)
+     * @ORM\Column(name="date_debut", type="datetime")
      */
     private $dateDebut;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_fin", type="datetime", nullable=true)
+     * @ORM\Column(name="date_fin", type="datetime")
      */
     private $dateFin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="remarque", type="text",nullable=true)
+     */
+    private $remarque;
 
     /**
      * @var integer
@@ -162,4 +169,30 @@ class PlageTravail
     {
         return $this->utilisateur;
     }
+
+
+    /**
+     * Set remarque
+     *
+     * @param string $remarque
+     *
+     * @return PlageTravail
+     */
+    public function setRemarque($remarque)
+    {
+        $this->remarque = $remarque;
+
+        return $this;
+    }
+
+    /**
+     * Get remarque
+     *
+     * @return \AppBundle\Entity\FosUser
+     */
+    public function getRemarque()
+    {
+        return $this->remarque;
+    }
+
 }
