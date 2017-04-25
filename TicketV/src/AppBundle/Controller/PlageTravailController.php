@@ -81,7 +81,7 @@ class PlageTravailController extends Controller
     public function newAction(Request $request)
     {
         $plageTravail = new Plagetravail();
-        $form = $this->createForm('AppBundle\Form\PlageTravailType', $plageTravail);
+        $form = $this->createForm('AppBundle\Form\PlageTravailType', $plageTravail,array('utilisateur' => $this->getUser()));
         $form->handleRequest($request);
         $route = $this->generateRoute($plageTravail);
 

@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fa32b764-ad15-4f8e-994d-6dfcd2c5b13d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TicketV/app/Resources/views/plagetravail/index.html.twig" afterPath="$PROJECT_DIR$/TicketV/app/Resources/views/plagetravail/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TicketV/src/AppBundle/Controller/PlageTravailController.php" afterPath="$PROJECT_DIR$/TicketV/src/AppBundle/Controller/PlageTravailController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TicketV/src/AppBundle/Form/PlageTravailType.php" afterPath="$PROJECT_DIR$/TicketV/src/AppBundle/Form/PlageTravailType.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,11 +19,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PlageTravailController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PlageTravailController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TicketV/src/AppBundle/Controller/PlageTravailController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="35" column="52" lean-forward="false" selection-start-line="35" selection-start-column="52" selection-end-line="35" selection-end-column="52" />
+            <state relative-caret-position="499">
+              <caret line="101" column="0" lean-forward="true" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -47,11 +49,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TicketV/app/Resources/views/plagetravail/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="878">
-              <caret line="127" column="124" lean-forward="false" selection-start-line="127" selection-start-column="124" selection-end-line="127" selection-end-column="124" />
+            <state relative-caret-position="45">
+              <caret line="78" column="31" lean-forward="false" selection-start-line="78" selection-start-column="31" selection-end-line="78" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -80,10 +82,10 @@
       <file leaf-file-name="PlageTravailType.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TicketV/src/AppBundle/Form/PlageTravailType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="21" column="100" lean-forward="false" selection-start-line="21" selection-start-column="100" selection-end-line="21" selection-end-column="100" />
+            <state relative-caret-position="855">
+              <caret line="67" column="24" lean-forward="false" selection-start-line="67" selection-start-column="24" selection-end-line="67" selection-end-column="24" />
               <folding>
-                <element signature="e#34#83#0#PHP" expanded="true" />
+                <element signature="e#34#63#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -175,10 +177,10 @@
         <option value="$PROJECT_DIR$/TicketV/app/Resources/views/form/fields.html.twig" />
         <option value="$PROJECT_DIR$/sql - v3.sql" />
         <option value="$PROJECT_DIR$/TicketV/src/AppBundle/Entity/PlageTravail.php" />
-        <option value="$PROJECT_DIR$/TicketV/src/AppBundle/Form/PlageTravailType.php" />
         <option value="$PROJECT_DIR$/TicketV/app/Resources/views/plagetravail/show.html.twig" />
-        <option value="$PROJECT_DIR$/TicketV/src/AppBundle/Controller/PlageTravailController.php" />
         <option value="$PROJECT_DIR$/TicketV/app/Resources/views/plagetravail/index.html.twig" />
+        <option value="$PROJECT_DIR$/TicketV/src/AppBundle/Form/PlageTravailType.php" />
+        <option value="$PROJECT_DIR$/TicketV/src/AppBundle/Controller/PlageTravailController.php" />
       </list>
     </option>
   </component>
@@ -655,12 +657,12 @@
       <workItem from="1492071345887" duration="38890000" />
       <workItem from="1492773519016" duration="10031000" />
       <workItem from="1492826523726" duration="10164000" />
-      <workItem from="1493107277666" duration="13569000" />
+      <workItem from="1493107277666" duration="15730000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74925000" />
+    <option name="totallyTimeSpent" value="77086000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="2560" height="1359" extended-state="6" />
@@ -722,20 +724,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/TicketV/vendor/friendsofsymfony/user-bundle/Controller/ProfileController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-670">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TicketV/vendor/friendsofsymfony/user-bundle/Resources/config/routing/all.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TicketV/vendor/friendsofsymfony/user-bundle/Resources/config/routing/profile.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -987,14 +975,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TicketV/src/AppBundle/Entity/PlageTravail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-56">
-          <caret line="11" column="3" lean-forward="false" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TicketV/app/Resources/views/plagetravail/new.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1053,28 +1033,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TicketV/src/AppBundle/Form/PlageTravailType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="21" column="100" lean-forward="false" selection-start-line="21" selection-start-column="100" selection-end-line="21" selection-end-column="100" />
-          <folding>
-            <element signature="e#34#83#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TicketV/app/Resources/views/ticket/edit.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="460">
           <caret line="34" column="48" lean-forward="false" selection-start-line="33" selection-start-column="7" selection-end-line="34" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TicketV/src/AppBundle/Entity/Ticket.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-295">
-          <caret line="18" column="77" lean-forward="false" selection-start-line="18" selection-start-column="77" selection-end-line="18" selection-end-column="77" />
           <folding />
         </state>
       </provider>
@@ -1095,18 +1057,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TicketV/src/AppBundle/Controller/PlageTravailController.php">
+    <entry file="file://$PROJECT_DIR$/TicketV/app/Resources/views/plagetravail/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="35" column="52" lean-forward="false" selection-start-line="35" selection-start-column="52" selection-end-line="35" selection-end-column="52" />
+        <state relative-caret-position="45">
+          <caret line="78" column="31" lean-forward="false" selection-start-line="78" selection-start-column="31" selection-end-line="78" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TicketV/app/Resources/views/plagetravail/index.html.twig">
+    <entry file="file://$PROJECT_DIR$/TicketV/vendor/symfony/symfony/src/Symfony/Component/Form/Extension/Core/Type/FormType.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="878">
-          <caret line="127" column="124" lean-forward="false" selection-start-line="127" selection-start-column="124" selection-end-line="127" selection-end-column="124" />
+        <state relative-caret-position="204">
+          <caret line="28" column="7" lean-forward="true" selection-start-line="26" selection-start-column="3" selection-end-line="28" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TicketV/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Controller/Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="329" column="23" lean-forward="false" selection-start-line="329" selection-start-column="23" selection-end-line="329" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TicketV/src/AppBundle/Entity/PlageTravail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-56">
+          <caret line="11" column="3" lean-forward="false" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TicketV/src/AppBundle/Entity/Ticket.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-295">
+          <caret line="18" column="77" lean-forward="false" selection-start-line="18" selection-start-column="77" selection-end-line="18" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TicketV/src/AppBundle/Form/PlageTravailType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="855">
+          <caret line="67" column="24" lean-forward="false" selection-start-line="67" selection-start-column="24" selection-end-line="67" selection-end-column="24" />
+          <folding>
+            <element signature="e#34#63#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TicketV/src/AppBundle/Controller/PlageTravailController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="499">
+          <caret line="101" column="0" lean-forward="true" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
           <folding />
         </state>
       </provider>
