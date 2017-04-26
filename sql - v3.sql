@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 25, 2017 at 10:05 AM
+-- Generation Time: Apr 26, 2017 at 02:54 PM
 -- Server version: 5.6.33
 -- PHP Version: 5.6.27
 
@@ -313,7 +313,7 @@ ALTER TABLE `mise_a_jour`
 -- AUTO_INCREMENT for table `plage_travail`
 --
 ALTER TABLE `plage_travail`
-  MODIFY `id_plage` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_plage` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `projet`
 --

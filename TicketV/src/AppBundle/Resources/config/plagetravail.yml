@@ -1,0 +1,24 @@
+plagetravail_index:
+    path: /plagetravail
+    defaults: { _controller: "AppBundle:PlageTravail:index" }
+    methods:  ['GET']
+
+plagetravail_new:
+    path: /plagetravail/new
+    defaults: { _controller: "AppBundle:PlageTravail:new" }
+    methods:  ['GET','POST']
+
+plagetravail_show:
+    path: /plagetravail/{idPlage}
+    defaults: { _controller: "AppBundle:PlageTravail:show" }
+    methods:  ['GET']
+
+plagetravail_edit:
+    path: /plagetravail/edit/{idPlage}
+    defaults: { _controller: "AppBundle:PlageTravail:edit" }
+    methods:  ['GET','POST']
+
+plagetravail_delete:
+    path: /plagetravail/{idPlage}
+    defaults: { _controller: "AppBundle:PlageTravail:delete" }
+    methods:  ['DELETE']
