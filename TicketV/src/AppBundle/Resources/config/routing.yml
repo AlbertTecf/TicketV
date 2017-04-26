@@ -15,3 +15,6 @@ degreImportance:
 
 tags:
     resource: "@AppBundle/Resources/config/tags.yml"
+
+plageTravail:
+    resource: "@AppBundle/Resources/config/plagetravail.yml"
