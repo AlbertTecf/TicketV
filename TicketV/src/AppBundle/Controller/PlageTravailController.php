@@ -18,8 +18,6 @@ class PlageTravailController extends Controller
     /**
      * Lists all plageTravail entities.
      *
-     * @Route("/", name="plagetravail_index")
-     * @Method("GET")
      */
     public function indexAction()
     {
@@ -75,8 +73,6 @@ class PlageTravailController extends Controller
     /**
      * Creates a new plageTravail entity.
      *
-     * @Route("/new", name="plagetravail_new")
-     * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
     {
@@ -103,8 +99,6 @@ class PlageTravailController extends Controller
     /**
      * Finds and displays a plageTravail entity.
      *
-     * @Route("/{idPlage}", name="plagetravail_show")
-     * @Method("GET")
      */
     public function showAction(PlageTravail $plageTravail)
     {
@@ -121,8 +115,6 @@ class PlageTravailController extends Controller
     /**
      * Displays a form to edit an existing plageTravail entity.
      *
-     * @Route("/{idPlage}/edit", name="plagetravail_edit")
-     * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, PlageTravail $plageTravail)
     {
@@ -148,8 +140,6 @@ class PlageTravailController extends Controller
     /**
      * Deletes a plageTravail entity.
      *
-     * @Route("/{idPlage}", name="plagetravail_delete")
-     * @Method("DELETE")
      */
     public function deleteAction(Request $request, PlageTravail $plageTravail)
     {
