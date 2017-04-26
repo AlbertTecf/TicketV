@@ -110,14 +110,16 @@ class TicketController extends Controller
             return $this->redirectToRoute('ticket_show', array('idTicket' => $ticket->getIdticket()));
         }
 
-
+        $em = $this->getDoctrine()->getManager();
+        $list_plage_travail = $em->getRepository('AppBundle:PlageTravail')->getAllByTicket($ticket->getIdTicket());
 
         return $this->render('ticket/edit.html.twig', array(
             'ticket' => $ticket,
             'edit_form' => $editForm->createView(),
             'commentaire_form'=>$commentaireForm->createView(),
             'delete_form' => $deleteForm->createView(),
-            'route'=>$route
+            'route'=>$route,
+            'list_plage_travail'=>$list_plage_travail
         ));
     }
 
