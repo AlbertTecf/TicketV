@@ -9,7 +9,7 @@ use FOS\UserBundle\Model\User;
  * Ticket
  *
  * @ORM\Table(name="ticket", indexes={@ORM\Index(name="fk_ticket_projet_idx", columns={"id_projet"}), @ORM\Index(name="fk_ticket_statut1_idx", columns={"id_statut"}), @ORM\Index(name="fk_ticket_degre_importance1_idx", columns={"id_degre_importance"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\TicketRepository")
  */
 class Ticket
 {
