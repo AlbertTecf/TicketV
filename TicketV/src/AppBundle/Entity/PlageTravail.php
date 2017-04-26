@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * PlageTravail
  *
  * @ORM\Table(name="plage_travail", indexes={@ORM\Index(name="fk_plage_travail_ticket1_idx", columns={"id_ticket"}), @ORM\Index(name="fk_plage_travail_utilisateur1_idx", columns={"id_utilisateur"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\PlageTravailRepository")
  */
 class PlageTravail
 {
@@ -17,7 +17,7 @@ class PlageTravail
      *
      * @ORM\Column(name="date_debut", type="datetime")
      */
-    private $dateDebut;
+    protected $dateDebut;
 
     /**
      * @var \DateTime
@@ -83,7 +83,7 @@ class PlageTravail
      *
      * @return \DateTime
      */
-    public function getDateDebut()
+    public function getdate_debut()
     {
         return $this->dateDebut;
     }
