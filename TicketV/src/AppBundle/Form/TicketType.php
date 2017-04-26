@@ -40,13 +40,8 @@ class TicketType extends AbstractType
             'label'=>'Importance : '
         ))
         ->add('libelle',TextType::class,['label'=>'Libellé : '])
-            ->add('description',TextareaType::class,['label'=>'Description : '])
-
-
-
-
-
-            ->add('tagsTag', EntityType::class, array(
+        ->add('description',TextareaType::class,['label'=>'Description : '])
+        ->add('tagsTag', EntityType::class, array(
                 'class' => 'AppBundle:Tags',
                 'choice_label' => 'libelle',
                 'label'=>'Tags : ',

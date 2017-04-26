@@ -29,6 +29,7 @@ class PlageTravailRepository extends \Doctrine\ORM\EntityRepository
         $rsm->addFieldResult("pt", "date_fin", "dateFin");
         $rsm->addFieldResult("pt", "remarque", "remarque");
         $rsm->addFieldResult("pt", "id_plage", "idPlage");
+
         $rsm->addMetaResult("pt", "id_ticket", "idTicket");
 
 

@@ -83,7 +83,7 @@ class PlageTravail
      *
      * @return \DateTime
      */
-    public function getdate_debut()
+    public function getDateDebut()
     {
         return $this->dateDebut;
     }

@@ -102,7 +102,7 @@
                  {% for plage_travail in list_plage_travail %}
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <div class="col-md-2"><b>{{ plage_travail.date_debut|date('d/m/Y à H:i:s') }}</b></div>
+                            <div class="col-md-2"><b>{{ plage_travail.getDateDebut()|date('d/m/Y à H:i:s') }}</b><BR><b>{{ plage_travail.getDateFin()|date('d/m/Y à H:i:s') }}</b></div>
                             <div class="col-md-8">{{ plage_travail.getRemarque()|raw }}</div>
                         </div>
                     </div>
