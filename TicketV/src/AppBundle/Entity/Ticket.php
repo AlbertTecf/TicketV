@@ -114,6 +114,21 @@ class Ticket
      */
     private $miseAJour;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\FosUser")
+     * @ORM\JoinTable(name="ticket_utilisateur",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="id_ticket", referencedColumnName="id_ticket")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="id_utilisateur", referencedColumnName="id")
+     *   }
+     * )
+     */
+    private $utilisateurs;
+
 
     /**
      * Constructor
@@ -381,6 +396,41 @@ class Ticket
     {
         return $this->commentaires;
     }
+
+    /**
+     * Add utilisateur
+     *
+     * @param \AppBundle\Entity\FosUser $utilisateur
+     *
+     * @return Ticket
+     */
+    public function addUtilisateurs(\AppBundle\Entity\FosUser $utilisateur)
+    {
+        $this->utilisateurs[] = $utilisateur;
+
+        return $this;
+    }
+
+    /**
+     * Remove utilisateur
+     *
+     * @param \AppBundle\Entity\FosUser $utilisateur
+     */
+    public function removeUtilisateurs(\AppBundle\Entity\FosUser $utilisateur)
+    {
+        $this->utilisateurs->removeElement($utilisateur);
+    }
+
+    /**
+     * Get Utilisateurs
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUtilisateurs()
+    {
+        return $this->utilisateurs;
+    }
+
 
     /**
      * Add suiviTicket

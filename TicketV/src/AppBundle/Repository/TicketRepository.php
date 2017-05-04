@@ -17,12 +17,14 @@ class TicketRepository extends \Doctrine\ORM\EntityRepository
     public function getAllByUtilisateur($id_utilisateur,$actif=true)
     {
 
-       return $this->getEntityManager()
-                     ->createQuery( 'SELECT t FROM AppBundle:Ticket t, AppBundle:SuiviTicket st, AppBundle:Statut s
-                                                    WHERE t.idTicket = st.idTicket
-                                                    AND t.idStatut = s.idStatut'.($actif?' AND s.clos = 0':'').'
-                                                    AND st.idUtilisateur = '.$id_utilisateur.'
-                                                    AND st.idSuiviTicket = (SELECT MAX(st2.idSuiviTicket) FROM AppBundle:SuiviTicket st2 WHERE st2.idTicket = t.idTicket)')
-                     ->getResult();
+        return $this->createQueryBuilder('t')
+                            ->innerJoin('t.utilisateurs', 'u')
+                            ->innerJoin('t.idStatut','s')
+                            ->where('u.id = :id_user')
+                            ->andWhere('s.clos = 0')
+                            ->setParameter('id_user', $id_utilisateur)
+                            ->getQuery()->getResult();
     }
 }
+
+
