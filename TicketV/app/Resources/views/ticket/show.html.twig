@@ -43,6 +43,11 @@
                     <div class="col-md-8">{{ ticket.getMiseAJour().getVersion() }} prévue le {{ ticket.getMiseAJour().getDate()|date('d/m/Y à H:i') }}</div>
                 </div>
                 {% endif %}
+                <div class="row">
+                    <div class="col-md-2"><b>Utilisateurs : </b></div>
+                    <div class="col-md-8"> {% for utilisateur in ticket.getUtilisateurs %} {{ utilisateur.username }} <br/> {% endfor %}</div>
+                </div>
+
                 <hr/>
 
                 <b> Description : </b>

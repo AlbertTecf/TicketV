@@ -71,11 +71,7 @@
                             -
                         {% endif %}
                     </td>
-                    <td> {% if ticket.getSuiviTicket()|length >0 %}
-                            {{ ticket.getSuiviTicket[0].getIdUtilisateur().getUsername() }}
-                        {% else %}
-                            -
-                        {% endif %}
+                    <td> {% for utilisateur in ticket.getUtilisateurs %} {{ utilisateur.username }} <br/> {% endfor %}
                     </td>
                     <td>
                         <table>
