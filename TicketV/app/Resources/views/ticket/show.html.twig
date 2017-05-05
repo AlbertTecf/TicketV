@@ -75,7 +75,7 @@
                     <th>Remarque</th>
                     </thead>
                     <tbody>
-                    {% for suivi in ticket.getSuiviTicket() %}
+                    {% for suivi in suivis_ticket %}
                         <tr>
                             <td>{{ suivi.getDate()|date('d/m/Y à H:i:s') }}</td>
                             <td>{{ suivi.getIdUtilisateur().username }}</td>

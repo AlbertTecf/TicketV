@@ -35,7 +35,7 @@ class CommentaireTicketRepository extends \Doctrine\ORM\EntityRepository
      *
      * @return Ticket
      */
-    public function addCommentaire($ticket,FosUser $user, $remarque)
+    public function addCommentaire(Ticket $ticket,FosUser $user, $remarque)
     {
         $commentaire = new CommentaireTicket();
         $commentaire->setDate(new \DateTime());

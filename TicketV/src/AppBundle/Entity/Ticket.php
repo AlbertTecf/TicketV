@@ -83,18 +83,6 @@ class Ticket
 
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\SuiviTicket", mappedBy="idTicket",cascade={"persist","remove"}))
-     * @ORM\OrderBy({"date" = "DESC"})
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_ticket", referencedColumnName="id_ticket")
-     * })
-     */
-    private $suiviTickets;
-
-
-    /**
      * @var \AppBundle\Entity\MiseAJour
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\MiseAJour")
@@ -294,40 +282,6 @@ class Ticket
         return $this->tagsTag;
     }
 
-    /**
-     * Add suiviTicket
-     *
-     * @param \AppBundle\Entity\SuiviTicket $suiviTicket
-     *
-     * @return Ticket
-     */
-    public function addSuiviTicket(\AppBundle\Entity\SuiviTicket $suiviTicket)
-    {
-        $this->suiviTickets[] = $suiviTicket;
-
-        return $this;
-    }
-
-    /**
-     * Remove suiviTicket
-     *
-     * @param \AppBundle\Entity\SuiviTicket $suiviTicket
-     */
-    public function removeSuiviTicket(\AppBundle\Entity\SuiviTicket $suiviTicket)
-    {
-        $this->tagsTag->removeElement($suiviTicket);
-    }
-
-    /**
-     * Get tagsTag
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getSuiviTicket()
-    {
-        return $this->suiviTickets;
-    }
-
 
     /**
      * Set MiseAJour
@@ -352,6 +306,7 @@ class Ticket
     {
         return $this->miseAJour;
     }
+
 
     /**
      * Add utilisateur
@@ -386,30 +341,5 @@ class Ticket
     {
         return $this->utilisateurs;
     }
-
-
-    /**
-     * Add suiviTicket
-     *
-     * @param \AppBundle\Entity\FosUser $user
-     * @param String $remarque
-     *
-     * @return Ticket
-     */
-    public function addSuiviTicketWithUserAndRemarque(User $user,$remarque)
-    {
-        $suiviTicket = new SuiviTicket();
-        $suiviTicket->setDate(new \DateTime());
-        $suiviTicket->setIdStatut($this->getIdStatut());
-        $suiviTicket->setIdUtilisateur($user);
-        $suiviTicket->setIdTicket($this);
-        $suiviTicket->setRemarque($remarque);
-
-        $this->suiviTickets[] = $suiviTicket;
-
-        return $this;
-    }
-
-
 
 }
