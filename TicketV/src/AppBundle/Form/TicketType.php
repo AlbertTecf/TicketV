@@ -11,16 +11,22 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class TicketType extends AbstractType
 {
+
+    private $utilisateurs;
+
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $this->utilisateurs = $options["utilisateurs"];
+
         $builder->add('idProjet', EntityType::class, array(
             'class' => 'AppBundle:Projet',
             'choice_label' => 'libelle',
             'label'=>'Projet : '
         ))
+
         ->add('idStatut', EntityType::class, array(
               'class' => 'AppBundle:Statut',
               'choice_label' => 'libelle',
@@ -40,19 +46,21 @@ class TicketType extends AbstractType
             'label'=>'Importance : '
         ))
         ->add('libelle',TextType::class,['label'=>'Libellé : '])
-            ->add('description',TextareaType::class,['label'=>'Description : '])
+        ->add('description',TextareaType::class,['label'=>'Description : '])
 
+        ->add('utilisateurs', EntityType::class, array(
+            'class' => 'AppBundle:FosUser',
+            'choice_label' => 'username',
+            'label'=>'Utilisateurs : ',
+            'multiple'=>true
+        ))
 
-
-
-
-            ->add('tagsTag', EntityType::class, array(
-                'class' => 'AppBundle:Tags',
-                'choice_label' => 'libelle',
-                'label'=>'Tags : ',
-                'multiple'=>true
-            ));
-
+        ->add('tagsTag', EntityType::class, array(
+            'class' => 'AppBundle:Tags',
+            'choice_label' => 'libelle',
+            'label'=>'Tags : ',
+            'multiple'=>true
+        ));
 
     }
     
@@ -62,7 +70,8 @@ class TicketType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Ticket'
+            'data_class' => 'AppBundle\Entity\Ticket',
+            'utilisateurs'=>null
         ));
     }
 
