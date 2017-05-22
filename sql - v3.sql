@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 26, 2017 at 02:54 PM
+-- Generation Time: May 22, 2017 at 10:08 AM
 -- Server version: 5.6.33
 -- PHP Version: 5.6.27
 
@@ -194,6 +194,17 @@ CREATE TABLE `ticket_tags` (
   `tags_id_tag` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ticket_utilisateur`
+--
+
+CREATE TABLE `ticket_utilisateur` (
+  `id_ticket` int(11) NOT NULL,
+  `id_utilisateur` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 --
 -- Indexes for dumped tables
 --
@@ -291,6 +302,13 @@ ALTER TABLE `ticket_tags`
   ADD KEY `tags_id_tag` (`tags_id_tag`);
 
 --
+-- Indexes for table `ticket_utilisateur`
+--
+ALTER TABLE `ticket_utilisateur`
+  ADD PRIMARY KEY (`id_ticket`,`id_utilisateur`),
+  ADD KEY `id_utilisateur` (`id_utilisateur`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -298,7 +316,7 @@ ALTER TABLE `ticket_tags`
 -- AUTO_INCREMENT for table `commentaire_ticket`
 --
 ALTER TABLE `commentaire_ticket`
-  MODIFY `id_commentaire_ticket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_commentaire_ticket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `degre_importance`
 --
@@ -328,7 +346,7 @@ ALTER TABLE `statut`
 -- AUTO_INCREMENT for table `suivi_ticket`
 --
 ALTER TABLE `suivi_ticket`
-  MODIFY `id_suivi_ticket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id_suivi_ticket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 --
 -- AUTO_INCREMENT for table `tags`
 --
@@ -399,3 +417,10 @@ ALTER TABLE `ticket_has_mise_a_jour`
 ALTER TABLE `ticket_tags`
   ADD CONSTRAINT `ticket_tags_ibfk_1` FOREIGN KEY (`tags_id_tag`) REFERENCES `tags` (`id_tag`),
   ADD CONSTRAINT `ticket_tags_ibfk_2` FOREIGN KEY (`ticket_id_ticket`) REFERENCES `ticket` (`id_ticket`);
+
+--
+-- Constraints for table `ticket_utilisateur`
+--
+ALTER TABLE `ticket_utilisateur`
+  ADD CONSTRAINT `ticket_utilisateur_ibfk_1` FOREIGN KEY (`id_ticket`) REFERENCES `ticket` (`id_ticket`),
+  ADD CONSTRAINT `ticket_utilisateur_ibfk_2` FOREIGN KEY (`id_utilisateur`) REFERENCES `fos_user` (`id`);

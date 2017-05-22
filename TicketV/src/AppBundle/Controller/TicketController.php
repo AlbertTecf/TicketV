@@ -75,13 +75,15 @@ class TicketController extends Controller
         $em = $this->getDoctrine()->getManager();
         $liste_commentaires_ticket = $em->getRepository('AppBundle:CommentaireTicket')->getAllByTicket($ticket->getIdTicket());
         $liste_suivi_ticket = $em->getRepository('AppBundle:SuiviTicket')->getAllByTicket($ticket->getIdTicket());
+        $list_plage_travail = $em->getRepository('AppBundle:PlageTravail')->getAllByTicket($ticket->getIdTicket());
 
         return $this->render('ticket/show.html.twig', array(
             'ticket' => $ticket,
             'delete_form' => $deleteForm->createView(),
             'route'=>$route,
             'commentaires_ticket'=>$liste_commentaires_ticket,
-            'suivis_ticket'=>$liste_suivi_ticket
+            'suivis_ticket'=>$liste_suivi_ticket,
+            'list_plage_travail'=>$list_plage_travail
         ));
     }
 
@@ -101,6 +103,7 @@ class TicketController extends Controller
         $em = $this->getDoctrine()->getManager();
         $liste_commentaires_ticket = $em->getRepository('AppBundle:CommentaireTicket')->getAllByTicket($ticket->getIdTicket());
         $liste_suivi_ticket = $em->getRepository('AppBundle:SuiviTicket')->getAllByTicket($ticket->getIdTicket());
+        $list_plage_travail = $em->getRepository('AppBundle:PlageTravail')->getAllByTicket($ticket->getIdTicket());
 
         if ($commentaireForm->isSubmitted() && $commentaireForm->isValid()) {
 
@@ -115,9 +118,6 @@ class TicketController extends Controller
 
             return $this->redirectToRoute('ticket_show', array('idTicket' => $ticket->getIdticket()));
         }
-
-        $em = $this->getDoctrine()->getManager();
-        $list_plage_travail = $em->getRepository('AppBundle:PlageTravail')->getAllByTicket($ticket->getIdTicket());
 
         return $this->render('ticket/edit.html.twig', array(
             'ticket' => $ticket,

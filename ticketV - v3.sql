@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 26, 2017 at 02:53 PM
+-- Generation Time: May 22, 2017 at 10:09 AM
 -- Server version: 5.6.33
 -- PHP Version: 5.6.27
 
@@ -38,7 +38,10 @@ INSERT INTO `commentaire_ticket` (`id_commentaire_ticket`, `ticket_id_ticket`, `
 (2, 2, 1, NULL, '2017-04-13 14:15:54', 'Premier commentaire pour test'),
 (9, 2, 1, NULL, '2017-04-13 14:08:14', 'Modification du ticket.'),
 (10, 2, 1, NULL, '2017-04-24 07:26:36', '<p>Ceci est un troisième commentaire</p>'),
-(11, 2, 1, NULL, '2017-04-24 07:36:16', '<p>ceci est un joli com</p>');
+(11, 2, 1, NULL, '2017-04-24 07:36:16', '<p>ceci est un joli com</p>'),
+(12, 2, 1, NULL, '2017-05-05 14:30:22', '<p>ceci est un PUTAIn de test</p>'),
+(13, 2, 1, NULL, '2017-05-05 14:36:17', '<p>efzregrg</p>'),
+(14, 2, 1, NULL, '2017-05-22 08:03:15', 'dernier test en date');
 
 -- --------------------------------------------------------
 
@@ -88,7 +91,7 @@ CREATE TABLE `fos_user` (
 
 INSERT INTO `fos_user` (`id`, `username`, `username_canonical`, `email`, `email_canonical`, `enabled`, `salt`, `password`, `last_login`, `confirmation_token`, `password_requested_at`, `roles`) VALUES
 (0, 'Mathieu', 'mathieu', 'mathieu.koenig@centralfinances.fr', 'mathieu.koenig@centralfinances.fr', 1, NULL, '$2y$13$uIxI3YtRbVtRqTdxG7Ufk.oAHwWQ6pZ5hnmGkN4KL2dW8qOQykw8y', '2017-04-21 12:35:03', NULL, NULL, 'a:0:{}'),
-(1, 'Adrien', 'adrien', 'adriball.dev@gmail.com', 'adriball.dev@gmail.com', 1, NULL, '$2y$13$Xyy/syOkSeNJiW39sg1WNuiY4FKDAT3jASMVEWC6riRoS51DyAqFG', '2017-04-24 07:46:41', NULL, NULL, 'a:0:{}');
+(1, 'Adrien', 'adrien', 'adriball.dev@gmail.com', 'adriball.dev@gmail.com', 1, NULL, '$2y$13$Xyy/syOkSeNJiW39sg1WNuiY4FKDAT3jASMVEWC6riRoS51DyAqFG', '2017-05-22 07:41:46', NULL, NULL, 'a:0:{}');
 
 -- --------------------------------------------------------
 
@@ -133,7 +136,7 @@ CREATE TABLE `plage_travail` (
 --
 
 INSERT INTO `plage_travail` (`id_plage`, `id_ticket`, `id_utilisateur`, `date_debut`, `date_fin`, `remarque`) VALUES
-(11, 2, NULL, '2017-04-25 16:53:00', '2017-04-25 16:53:00', NULL),
+(11, 2, 1, '2017-04-25 16:53:00', '2017-04-25 16:53:00', NULL),
 (12, 2, 1, '2017-04-25 17:05:00', '2017-04-25 17:05:00', 'efrzbrgfz');
 
 -- --------------------------------------------------------
@@ -193,8 +196,8 @@ CREATE TABLE `statut` (
 --
 
 INSERT INTO `statut` (`id_statut`, `libelle`, `actif`, `clos`, `couleur`) VALUES
-(1, 'En cours', 1, 1, '#3bd731'),
-(2, 'En Test', 1, 1, '#2963ba'),
+(1, 'En cours', 1, 0, '#3bd731'),
+(2, 'En Test', 1, 0, '#2963ba'),
 (3, 'Planifié', 1, 0, '#ba55ad'),
 (4, 'Sans suite', 1, 0, '#a29a09'),
 (5, 'Non revu', 1, 0, '#ffffff'),
@@ -247,7 +250,12 @@ INSERT INTO `suivi_ticket` (`id_suivi_ticket`, `id_statut`, `id_ticket`, `id_uti
 (27, 6, 2, 1, '2017-04-21 13:08:47', 'Modification du ticket.'),
 (28, 6, 2, 1, '2017-04-24 07:21:05', 'Modification du ticket.'),
 (29, 6, 2, 1, '2017-04-24 07:26:43', 'Modification du ticket.'),
-(30, 6, 2, 1, '2017-04-24 07:35:59', 'Modification du ticket.');
+(30, 6, 2, 1, '2017-04-24 07:35:59', 'Modification du ticket.'),
+(31, 3, 4, 1, '2017-04-27 12:14:13', 'Modification du ticket.'),
+(32, 2, 3, 1, '2017-05-04 09:57:13', 'Modification du ticket.'),
+(33, 2, 3, 1, '2017-05-04 09:57:36', 'Modification du ticket.'),
+(34, 2, 3, 1, '2017-05-04 09:58:18', 'Modification du ticket.'),
+(35, 2, 3, 1, '2017-05-05 14:08:17', 'Modification du ticket.');
 
 -- --------------------------------------------------------
 
@@ -293,7 +301,7 @@ CREATE TABLE `ticket` (
 
 INSERT INTO `ticket` (`id_ticket`, `id_degre_importance`, `id_projet`, `id_statut`, `libelle`, `description`, `id_mise_a_jour`) VALUES
 (2, 2, 7, 6, 'Ticket 1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum', 2),
-(3, 1, 7, 2, 'Ticket 2', 'Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l\'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n\'a pas fait que survivre cinq siècles, mais s\'est aussi adapté à la bureautique informatique, sans que son contenu n\'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.\r\n\r\nOn sait depuis longtemps que travailler avec du texte lisible et contenant du sens est source de distractions, et empêche de se concentrer sur la mise en page elle-même. L\'avantage du Lorem Ipsum sur un texte générique comme \'Du texte. Du texte. Du texte.\' est qu\'il possède une distribution de lettres plus ou moins normale, et en tout cas comparable avec celle du français standard. De nombreuses suites logicielles de mise en page ou éditeurs de sites Web ont fait du Lorem Ipsum leur faux texte par défaut, et une recherche pour \'Lorem Ipsum\' vous conduira vers de nombreux sites qui n\'en sont encore qu\'à leur phase de construction. Plusieurs versions sont apparues avec le temps, parfois par accident, souvent intentionnellement (histoire d\'y rajouter de petits clins d\'oeil, voire des phrases embarassantes).', NULL),
+(3, 1, 7, 2, 'Ticket 2', 'Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l\'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n\'a pas fait que survivre cinq siècles, mais s\'est aussi adapté à la bureautique informatique, sans que son contenu n\'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.\r\n\r\nOn sait depuis longtemps que travailler avec du texte lisible et contenant du sens est source de distractions, et empêche de se concentrer sur la mise en page elle-même. L\'avantage du Lorem Ipsum sur un texte générique comme \'Du texte. Du texte. Du texte.\' est qu\'il possède une distribution de lettres plus ou moins normale, et en tout cas comparable avec celle du français standard. De nombreuses suites logicielles de mise en page ou éditeurs de sites Web ont fait du Lorem Ipsum leur faux texte par défaut, et une recherche pour \'Lorem Ipsum\' vous conduira vers de nombreux sites qui n\'en sont encore qu\'à leur phase de construction. Plusieurs versions sont apparues avec le temps, parfois par accident, souvent intentionnellement (histoire d\'y rajouter de petits clins d\'oeil, voire des phrases embarassantes).', 2),
 (4, 1, 7, 3, 'Ticket 3', 'Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l\'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n\'a pas fait que survivre cinq siècles, mais s\'est aussi adapté à la bureautique informatique, sans que son contenu n\'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.\r\n\r\nOn sait depuis longtemps que travailler avec du texte lisible et contenant du sens est source de distractions, et empêche de se concentrer sur la mise en page elle-même. L\'avantage du Lorem Ipsum sur un texte générique comme \'Du texte. Du texte. Du texte.\' est qu\'il possède une distribution de lettres plus ou moins normale, et en tout cas comparable avec celle du français standard. De nombreuses suites logicielles de mise en page ou éditeurs de sites Web ont fait du Lorem Ipsum leur faux texte par défaut, et une recherche pour \'Lorem Ipsum\' vous conduira vers de nombreux sites qui n\'en sont encore qu\'à leur phase de construction. Plusieurs versions sont apparues avec le temps, parfois par accident, souvent intentionnellement (histoire d\'y rajouter de petits clins d\'oeil, voire des phrases embarassantes).', NULL),
 (5, 2, 7, 1, 'Ticket 4', 'Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l\'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n\'a pas fait que survivre cinq siècles, mais s\'est aussi adapté à la bureautique informatique, sans que son contenu n\'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.\r\n\r\nOn sait depuis longtemps que travailler avec du texte lisible et contenant du sens est source de distractions, et empêche de se concentrer sur la mise en page elle-même. L\'avantage du Lorem Ipsum sur un texte générique comme \'Du texte. Du texte. Du texte.\' est qu\'il possède une distribution de lettres plus ou moins normale, et en tout cas comparable avec celle du français standard. De nombreuses suites logicielles de mise en page ou éditeurs de sites Web ont fait du Lorem Ipsum leur faux texte par défaut, et une recherche pour \'Lorem Ipsum\' vous conduira vers de nombreux sites qui n\'en sont encore qu\'à leur phase de construction. Plusieurs versions sont apparues avec le temps, parfois par accident, souvent intentionnellement (histoire d\'y rajouter de petits clins d\'oeil, voire des phrases embarassantes).', NULL),
 (6, 1, 7, 1, 'Ticket 5', 'Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l\'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n\'a pas fait que survivre cinq siècles, mais s\'est aussi adapté à la bureautique informatique, sans que son contenu n\'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.\r\n\r\nOn sait depuis longtemps que travailler avec du texte lisible et contenant du sens est source de distractions, et empêche de se concentrer sur la mise en page elle-même. L\'avantage du Lorem Ipsum sur un texte générique comme \'Du texte. Du texte. Du texte.\' est qu\'il possède une distribution de lettres plus ou moins normale, et en tout cas comparable avec celle du français standard. De nombreuses suites logicielles de mise en page ou éditeurs de sites Web ont fait du Lorem Ipsum leur faux texte par défaut, et une recherche pour \'Lorem Ipsum\' vous conduira vers de nombreux sites qui n\'en sont encore qu\'à leur phase de construction. Plusieurs versions sont apparues avec le temps, parfois par accident, souvent intentionnellement (histoire d\'y rajouter de petits clins d\'oeil, voire des phrases embarassantes).', NULL),
@@ -353,6 +361,27 @@ INSERT INTO `ticket_tags` (`ticket_id_ticket`, `tags_id_tag`) VALUES
 (13, 3),
 (6, 4),
 (11, 4);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ticket_utilisateur`
+--
+
+CREATE TABLE `ticket_utilisateur` (
+  `id_ticket` int(11) NOT NULL,
+  `id_utilisateur` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ticket_utilisateur`
+--
+
+INSERT INTO `ticket_utilisateur` (`id_ticket`, `id_utilisateur`) VALUES
+(3, 0),
+(4, 0),
+(3, 1),
+(4, 1);
 
 --
 -- Indexes for dumped tables
@@ -451,6 +480,13 @@ ALTER TABLE `ticket_tags`
   ADD KEY `tags_id_tag` (`tags_id_tag`);
 
 --
+-- Indexes for table `ticket_utilisateur`
+--
+ALTER TABLE `ticket_utilisateur`
+  ADD PRIMARY KEY (`id_ticket`,`id_utilisateur`),
+  ADD KEY `id_utilisateur` (`id_utilisateur`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -458,7 +494,7 @@ ALTER TABLE `ticket_tags`
 -- AUTO_INCREMENT for table `commentaire_ticket`
 --
 ALTER TABLE `commentaire_ticket`
-  MODIFY `id_commentaire_ticket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_commentaire_ticket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `degre_importance`
 --
@@ -488,7 +524,7 @@ ALTER TABLE `statut`
 -- AUTO_INCREMENT for table `suivi_ticket`
 --
 ALTER TABLE `suivi_ticket`
-  MODIFY `id_suivi_ticket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id_suivi_ticket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 --
 -- AUTO_INCREMENT for table `tags`
 --
@@ -559,3 +595,10 @@ ALTER TABLE `ticket_has_mise_a_jour`
 ALTER TABLE `ticket_tags`
   ADD CONSTRAINT `ticket_tags_ibfk_1` FOREIGN KEY (`tags_id_tag`) REFERENCES `tags` (`id_tag`),
   ADD CONSTRAINT `ticket_tags_ibfk_2` FOREIGN KEY (`ticket_id_ticket`) REFERENCES `ticket` (`id_ticket`);
+
+--
+-- Constraints for table `ticket_utilisateur`
+--
+ALTER TABLE `ticket_utilisateur`
+  ADD CONSTRAINT `ticket_utilisateur_ibfk_1` FOREIGN KEY (`id_ticket`) REFERENCES `ticket` (`id_ticket`),
+  ADD CONSTRAINT `ticket_utilisateur_ibfk_2` FOREIGN KEY (`id_utilisateur`) REFERENCES `fos_user` (`id`);

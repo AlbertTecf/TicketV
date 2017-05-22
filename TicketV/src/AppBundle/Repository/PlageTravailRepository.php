@@ -17,27 +17,34 @@ class PlageTravailRepository extends \Doctrine\ORM\EntityRepository
     public function getAllByTicket($id_ticket)
     {
 
-        $rsm = new ResultSetMapping();
+//        $rsm = new ResultSetMapping();
+//
+//        $query_sql = 'SELECT pt.*  FROM plage_travail pt WHERE id_ticket = ?';
+//
+//        $rsm = new ResultSetMappingBuilder($this->getEntityManager());
+//
+//        $rsm->addEntityResult(PlageTravail::class, "pt");
+//
+//        $rsm->addFieldResult("pt", "date_debut", "dateDebut");
+//        $rsm->addFieldResult("pt", "date_fin", "dateFin");
+//        $rsm->addFieldResult("pt", "remarque", "remarque");
+//        $rsm->addFieldResult("pt", "id_plage", "idPlage");
+//        $rsm->addFieldResult("pt", "id_utilisateur", "utilisateur");
+//        $rsm->addMetaResult("pt", "id_ticket", "idTicket");
+//
+//
+//        $stmt = $this->getEntityManager()->createNativeQuery($query_sql, $rsm);
+//        $stmt->setParameter(1, $id_ticket);
+//
+//        $stmt->execute();
+//
+//        $tickets = $stmt->getResult();
 
-        $query_sql = 'SELECT pt.*  FROM plage_travail pt WHERE id_ticket = ?';
-
-        $rsm = new ResultSetMappingBuilder($this->getEntityManager());
-
-        $rsm->addEntityResult(PlageTravail::class, "pt");
-
-        $rsm->addFieldResult("pt", "date_debut", "dateDebut");
-        $rsm->addFieldResult("pt", "date_fin", "dateFin");
-        $rsm->addFieldResult("pt", "remarque", "remarque");
-        $rsm->addFieldResult("pt", "id_plage", "idPlage");
-        $rsm->addMetaResult("pt", "id_ticket", "idTicket");
-
-
-        $stmt = $this->getEntityManager()->createNativeQuery($query_sql, $rsm);
-        $stmt->setParameter(1, 2);
-
-        $stmt->execute();
-
-        $tickets = $stmt->getResult();
+        return $this->createQueryBuilder('pt')
+                    ->where('pt.ticket = :id_ticket')
+                    ->orderBy('pt.idPlage','DESC')
+                    ->setParameter('id_ticket', $id_ticket)
+                    ->getQuery()->getResult();
 
         return $tickets;
     }
