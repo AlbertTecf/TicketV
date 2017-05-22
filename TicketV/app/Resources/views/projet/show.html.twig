@@ -73,7 +73,6 @@
                     <th>Libelle</th>
                     <th>Projet</th>
                     <th>Importance</th>
-                    <th>Mis à jour</th>
                     <th>Affecté à</th>
                     <th>Statut</th>
                     <th></th>
@@ -86,12 +85,6 @@
                         <td>{{ ticket.getLibelle() }}</td>
                         <td>{{ ticket.getIdProjet().getlibelle() }}</td>
                         <td>{{ ticket.getIdDegreImportance().getLibelle() }}</td>
-                        <td> {% if ticket.getSuiviTicket()|length >0 %}
-                                {{ ticket.getSuiviTicket[0].getDate()|date('d/m/Y') }}
-                            {% else %}
-                                -
-                            {% endif %}
-                        </td>
                         <td> {% for utilisateur in ticket.getUtilisateurs %} {{ utilisateur.username }} <br/> {% endfor %}
                         </td>
                         <td>

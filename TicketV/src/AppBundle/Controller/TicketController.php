@@ -47,9 +47,9 @@ class TicketController extends Controller
         $route = $this->generateRoute($ticket);
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $ticket->addSuiviTicketWithUserAndRemarque($this->getUser(),"Création du ticket du ticket.");;
-
             $em = $this->getDoctrine()->getManager();
+            $em->getRepository('AppBundle:SuiviTicket')->addCommentaire($ticket,$this->getUser(),"Création du ticket");
+
             $em->persist($ticket);
             $em->flush();
 
@@ -71,13 +71,19 @@ class TicketController extends Controller
     {
         $deleteForm = $this->createDeleteForm($ticket);
         $route = $this->generateRoute($ticket);
-        $repository = $this->getDoctrine()
-            ->getRepository('AppBundle:SuiviTicket');
+
+        $em = $this->getDoctrine()->getManager();
+        $liste_commentaires_ticket = $em->getRepository('AppBundle:CommentaireTicket')->getAllByTicket($ticket->getIdTicket());
+        $liste_suivi_ticket = $em->getRepository('AppBundle:SuiviTicket')->getAllByTicket($ticket->getIdTicket());
+        $list_plage_travail = $em->getRepository('AppBundle:PlageTravail')->getAllByTicket($ticket->getIdTicket());
 
         return $this->render('ticket/show.html.twig', array(
             'ticket' => $ticket,
             'delete_form' => $deleteForm->createView(),
-            'route'=>$route
+            'route'=>$route,
+            'commentaires_ticket'=>$liste_commentaires_ticket,
+            'suivis_ticket'=>$liste_suivi_ticket,
+            'list_plage_travail'=>$list_plage_travail
         ));
     }
 
@@ -94,24 +100,24 @@ class TicketController extends Controller
         $commentaireForm = $this->createCommentaireForm();
         $commentaireForm->handleRequest($request);
 
+        $em = $this->getDoctrine()->getManager();
+        $liste_commentaires_ticket = $em->getRepository('AppBundle:CommentaireTicket')->getAllByTicket($ticket->getIdTicket());
+        $liste_suivi_ticket = $em->getRepository('AppBundle:SuiviTicket')->getAllByTicket($ticket->getIdTicket());
+        $list_plage_travail = $em->getRepository('AppBundle:PlageTravail')->getAllByTicket($ticket->getIdTicket());
+
         if ($commentaireForm->isSubmitted() && $commentaireForm->isValid()) {
 
-            $ticket->addCommentairetWithUserAndRemarque($this->getUser(),$commentaireForm["commentaire"]->getData());
-            $this->getDoctrine()->getManager()->flush();
-
+            $em->getRepository('AppBundle:CommentaireTicket')->addCommentaire($ticket,$this->getUser(),$commentaireForm["commentaire"]->getData());
             return $this->redirectToRoute('ticket_show', array('idTicket' => $ticket->getIdticket()));
         }
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
 
-            $ticket->addSuiviTicketWithUserAndRemarque($this->getUser(),"Modification du ticket.");
+            $em->getRepository('AppBundle:SuiviTicket')->addCommentaire($ticket,$this->getUser(),"Modification du ticket");
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('ticket_show', array('idTicket' => $ticket->getIdticket()));
         }
-
-        $em = $this->getDoctrine()->getManager();
-        $list_plage_travail = $em->getRepository('AppBundle:PlageTravail')->getAllByTicket($ticket->getIdTicket());
 
         return $this->render('ticket/edit.html.twig', array(
             'ticket' => $ticket,
@@ -119,7 +125,9 @@ class TicketController extends Controller
             'commentaire_form'=>$commentaireForm->createView(),
             'delete_form' => $deleteForm->createView(),
             'route'=>$route,
-            'list_plage_travail'=>$list_plage_travail
+            'list_plage_travail'=>$list_plage_travail,
+            'commentaires_ticket'=>$liste_commentaires_ticket,
+            'suivis_ticket'=>$liste_suivi_ticket
         ));
     }
 

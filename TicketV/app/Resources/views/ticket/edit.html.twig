@@ -57,7 +57,7 @@
                     <th>Remarque</th>
                     </thead>
                     <tbody>
-                    {% for suivi in ticket.getSuiviTicket() %}
+                    {% for suivi in suivis_ticket %}
                        <tr>
                            <td>{{ suivi.getDate()|date('d/m/Y à H:i:s') }}</td>
                            <td>{{ suivi.getIdUtilisateur().username }}</td>
@@ -70,7 +70,21 @@
                 </table>
             </div>
             <div class="tab-pane" id="commentaire">
-                {% for commentaire in ticket.getCommentaires() %}
+
+                <div class="margin-bottom">
+                    {{ form_start(commentaire_form) }}
+
+
+                    {{ form_widget(commentaire_form) }}
+
+                    <div class="pull-right">
+                        <input class="btn btn-primary" type="submit" value="Commenter" />
+                    </div>
+
+                    {{ form_end(commentaire_form) }}
+                </div>
+
+                {% for commentaire in commentaires_ticket %}
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <div class="col-md-2"><b>{{ commentaire.getUtilisateur().username }}</b><br/>le {{ commentaire.getDate()|date('d/m/Y à H:i:s') }}</div>
@@ -79,30 +93,15 @@
                     </div>
 
                 {% endfor %}
-                        {{ form_start(commentaire_form) }}
-
-                        {% form_theme commentaire_form 'form/fields.html.twig' %}
-
-                        {{ form_widget(commentaire_form) }}
-
-                        <div class="pull-right">
-                            <input class="btn btn-primary" type="submit" value="Commenter" />
-                        </div>
-
-                        {{ form_end(commentaire_form) }}
-
-
-
-
 
             </div>
 
             <div class="tab-pane" id="plage_travail">
-
                  {% for plage_travail in list_plage_travail %}
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <div class="col-md-2"><b>{{ plage_travail.date_debut|date('d/m/Y à H:i:s') }}</b></div>
+                            <div class="col-md-2"><b>{{ plage_travail.getDateDebut()|date('d/m/Y à H:i:s') }}<br/>{{ plage_travail.getDateFin()|date('d/m/Y à H:i:s') }}</b></div>
+                            <div class="col-md-2">{{ plage_travail.getUtilisateur().username }}</div>
                             <div class="col-md-8">{{ plage_travail.getRemarque()|raw }}</div>
                         </div>
                     </div>

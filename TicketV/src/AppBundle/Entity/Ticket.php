@@ -83,28 +83,6 @@ class Ticket
 
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\SuiviTicket", mappedBy="idTicket",cascade={"persist","remove"}))
-     * @ORM\OrderBy({"date" = "DESC"})
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_ticket", referencedColumnName="id_ticket")
-     * })
-     */
-    private $suiviTickets;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\CommentaireTicket", mappedBy="ticket",cascade={"persist","remove"}))
-     * @ORM\OrderBy({"date" = "DESC"})
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="ticket_id_ticket", referencedColumnName="id_ticket")
-     * })
-     */
-    private $commentaires;
-
-    /**
      * @var \AppBundle\Entity\MiseAJour
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\MiseAJour")
@@ -304,40 +282,6 @@ class Ticket
         return $this->tagsTag;
     }
 
-    /**
-     * Add suiviTicket
-     *
-     * @param \AppBundle\Entity\SuiviTicket $suiviTicket
-     *
-     * @return Ticket
-     */
-    public function addSuiviTicket(\AppBundle\Entity\SuiviTicket $suiviTicket)
-    {
-        $this->suiviTickets[] = $suiviTicket;
-
-        return $this;
-    }
-
-    /**
-     * Remove suiviTicket
-     *
-     * @param \AppBundle\Entity\SuiviTicket $suiviTicket
-     */
-    public function removeSuiviTicket(\AppBundle\Entity\SuiviTicket $suiviTicket)
-    {
-        $this->tagsTag->removeElement($suiviTicket);
-    }
-
-    /**
-     * Get tagsTag
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getSuiviTicket()
-    {
-        return $this->suiviTickets;
-    }
-
 
     /**
      * Set MiseAJour
@@ -363,39 +307,6 @@ class Ticket
         return $this->miseAJour;
     }
 
-    /**
-     * Add CommentaireTicket
-     *
-     * @param \AppBundle\Entity\SuiviTicket $suiviTicket
-     *
-     * @return Ticket
-     */
-    public function addCommentaire(\AppBundle\Entity\CommentaireTicket $commentaireTicket)
-    {
-        $this->commentaires[] = $commentaireTicket;
-
-        return $this;
-    }
-
-    /**
-     * Remove CommentaireTicket
-     *
-     * @param \AppBundle\Entity\SuiviTicket $suiviTicket
-     */
-    public function removeCommentaire(\AppBundle\Entity\CommentaireTicket $commentaireTicket)
-    {
-        $this->commentaires->removeElement($commentaireTicket);
-    }
-
-    /**
-     * Get CommentaireTicket
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getCommentaires()
-    {
-        return $this->commentaires;
-    }
 
     /**
      * Add utilisateur
@@ -429,50 +340,6 @@ class Ticket
     public function getUtilisateurs()
     {
         return $this->utilisateurs;
-    }
-
-
-    /**
-     * Add suiviTicket
-     *
-     * @param \AppBundle\Entity\FosUser $user
-     * @param String $remarque
-     *
-     * @return Ticket
-     */
-    public function addSuiviTicketWithUserAndRemarque(User $user,$remarque)
-    {
-        $suiviTicket = new SuiviTicket();
-        $suiviTicket->setDate(new \DateTime());
-        $suiviTicket->setIdStatut($this->getIdStatut());
-        $suiviTicket->setIdUtilisateur($user);
-        $suiviTicket->setIdTicket($this);
-        $suiviTicket->setRemarque($remarque);
-
-        $this->suiviTickets[] = $suiviTicket;
-
-        return $this;
-    }
-
-    /**
-     * Add Commentaire
-     *
-     * @param \AppBundle\Entity\FosUser $user
-     * @param String $remarque
-     *
-     * @return Ticket
-     */
-    public function addCommentairetWithUserAndRemarque(User $user,$remarque)
-    {
-        $commentaire = new CommentaireTicket();
-        $commentaire->setDate(new \DateTime());
-        $commentaire->setUtilisateur($user);
-        $commentaire->setTicket($this);
-        $commentaire->setRemarque($remarque);
-
-        $this->commentaires[] = $commentaire;
-
-        return $this;
     }
 
 }
